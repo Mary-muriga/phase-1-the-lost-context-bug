@@ -10,3 +10,19 @@ const messageConfig = {
       "Loki"
   ]
 };
+const printCard = function () {
+  console.log(this.frontContent);
+  console.log(this.insideContent);
+  const outerContext = this;
+  //console.log("Debug Before forEach: " + this);
+  this.signatories.forEach((signatory)=>
+    //console.log("Debug Inside: " + this);
+    //const contextBoundForEachExpr = function (signatory) {
+    console.log(`${this.closing[signatory]}, ${signatory}`)
+    //console.log(message);
+  );
+};
+//.bind(this);
+  //this.signatories.forEach(contextBoundForEachExpr);
+
+printCard.call(messageConfig);
